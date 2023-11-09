@@ -1,0 +1,84 @@
+/*-------------------Estilização geral da página---------------------*/
+*{ 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../media/abstratos-blur-supermercado-loja.jpg);
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+}
+
+/*----------------------Estilização do Título--------------------------*/
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #fff;
+    color: #000;
+    margin: 1rem 3rem;
+    padding-left: 1rem;
+    font-size: 3rem;
+    box-shadow: 5px 5px 10px #404040ba;
+    border-radius: 2px;
+}
+
+/*----------------------Estilização da Caixa Principal------------------*/
+main {
+    display: inline-flex;
+    box-shadow: 5px 5px 10px #404040ba;
+    min-width: 94vw;
+    min-height: 70vh;
+    margin: 0 3rem auto 3rem;
+    border-radius: 2px;
+}
+
+/*-----------------*Estilização da div que fica os botões------------------*/
+#button-container {
+    background-color: #e1e1e1;
+    height: 2.5rem;
+}
+
+/*----------------------------Estilização dos botões----------------------------*/
+div > button {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 3rem;
+    border-radius: 5px;
+    border-color: #000;
+    font-size: larger;
+}
+
+#adc-btn {
+    margin-left: 1rem;
+}
+
+#adc-btn:hover, #delete-btn:hover, #modify-btn:hover {
+    background-color: rgb(10, 210, 10);
+}
+
+/*------------------Estilização das linhas da caixa principal---------------------*/
+main > div > div {
+    width: 94vw;
+    height: 30px;
+}
+
+main > div > div:nth-child(even) {
+    background-color: #fff;
+}
+
+main > div > div:nth-child(odd) {
+    background-color: #e1e1e1;
+}
+
+/*-------------------EStilização dos input dos produtos---------------------------*/
+#codigo-barras, 
+#nome-produto,
+#preco-produto {
+    width: 10rem;
+    height: 1.5rem;
+    margin-top: .2rem;
+    margin-left: 0.5rem;
+    top: 0;
+}

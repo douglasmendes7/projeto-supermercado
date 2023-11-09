@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../assets/media/carrinho-carrinho.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../assets/style/caixa.css" />
+    <script src="../assets/scripts/caixa.js"></script>
+    <title>CAIXA</title>
+  </head>
+  <body>
+    <h1>COMPRAS</h1>
+
+    <main>
+      <div id="button-container">
+        <button id="new-btn">Nova Compra</button>
+        <button id="delet-btn">Deletar Produto</button>
+        <button id="end-btn">Finalizar Compra</button>
+        <button id="cancel-btn">Cancelar Compra</button>
+      </div>
+
+      <form>
+        <label for="bar-code"></label>
+        <input type="text" id="bar-code" name="codigo-de-barras" placeholder="Digite o código de barras">
+        <button id="bar-button" type="submit">Inserir</button>
+      </form>
+      
+      <p>Lista de Compras</p>
+
+      <div id="container-list">
+        <ul id="product-list">
+          <li>Leite UHT Integral</li>
+          <li>Saco Plastico 30 litros</li>
+          <li>Suco Tang Uva</li>
+        </ul> 
+
+        <ul id="price-list">
+          <li>3.99</li>
+          <li>12.65</li>
+          <li>1.99</li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

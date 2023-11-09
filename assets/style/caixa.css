@@ -1,0 +1,117 @@
+/*-------------estilização geral da página------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../media/abstratos-blur-supermercado-loja.jpg);
+    overflow: hidden;
+}
+
+/*------------------estilização do titulo-------------------*/
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #fff;
+    box-shadow: 5px 5px 10px #404040ba;
+    margin: 1rem 3rem;
+    padding-left: 1rem;
+    font-size: 3rem;
+    border-radius: 2px;
+}
+
+/*-----------------estilização da main----------------------*/
+main {
+    display: flexbox;
+    background-color:#fff;
+    box-shadow: 5px 5px 10px #404040ba;
+    min-width: 94vw;
+    min-height: 70vh;
+    margin: 0 3rem auto 3rem;
+    padding: .5rem;
+    border-radius: 2px;
+}
+
+/*--------------------estilização das div container e formulário------------------*/
+#container-lis{
+    width: 100%;
+}
+
+div {
+    display: block;
+}
+
+form {
+    display: none;
+}
+
+/*-----------------estilização do parágrafo e botões----------------------*/
+p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    border-bottom: 2px dotted #000;
+}
+
+button {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: 1px 1px 5px #404040ba;
+    cursor: pointer;
+    height: 2rem;
+    width: 8rem;
+    border-radius: 5px;
+    border-color: #000;
+}
+
+#button-container {
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #000;
+}
+
+#new-btn:hover, #end-btn:hover {
+    background-color: rgb(10, 210, 10);
+    color: #fff;
+    font-weight: bold;
+}
+
+#delet-btn:hover, #cancel-btn:hover {
+    background-color: rgb(210, 10, 10);
+    color: #fff;
+    font-weight: bold;
+}
+
+#bar-button {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: 1px 1px 5px #404040ba;
+    cursor: pointer;
+    height: 1.5rem;
+    width: 5rem;
+    margin-top: .5rem;
+    border-radius: 5px;
+    border-color: #000;
+}
+
+#bar-button:hover {
+    background-color: #00f;
+    color: #fff;
+    font-weight: bold;
+}
+
+/*--------------------estilização das listas------------------*/
+
+ul{
+    margin: 1rem;
+    display: inline-block;
+}
+
+#product-list{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    list-style: decimal;
+}
+
+#price-list {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    list-style: none;
+}

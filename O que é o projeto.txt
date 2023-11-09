@@ -1,0 +1,15 @@
+O projeto visa criar um pequeno sistema de supermercado que tenha duas funcionalidades, a primeira é a de estoque aonde será possível adicionar produtos, modificar ou remove-los do banco de dados, a segunda é a de "caixa" aonde será possível iniciar uma nova compra e adicionar os produtos nela digitando seu código de barras, no final da compra o sistema deverá gerar uma nota fiscal com a lista de produtos comprados e o total do valor da compra.
+
+O projeto ainda não está terminado más a intenção não é apenas criar o sistema más também que eu aprenda coisas novas e aprimore minhas habilidades de programação, então mesmo que não esteja terminado seu propósito já está sendo cumprido.
+
+Muito obrigado a quem estiver lendo...
+
+O que eu aprendi com o projeto:
+
+O método fetch()
+express
+sequelize
+cors
+midleware
+rotas URL
+Erros de servidor
