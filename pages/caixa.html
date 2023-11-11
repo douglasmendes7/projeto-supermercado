@@ -9,7 +9,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="../assets/style/caixa.css" />
-    <script src="../assets/scripts/caixa.js"></script>
+    <script src="../assets/scripts/caixa.js" defer></script>
     <title>CAIXA</title>
   </head>
   <body>
@@ -23,7 +23,7 @@
         <button id="cancel-btn">Cancelar Compra</button>
       </div>
 
-      <form>
+      <form id="formulario">
         <label for="bar-code"></label>
         <input type="text" id="bar-code" name="codigo-de-barras" placeholder="Digite o código de barras">
         <button id="bar-button" type="submit">Inserir</button>
