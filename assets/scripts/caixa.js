@@ -59,6 +59,10 @@ function cancelPurchase() {
 };
 
 //eventos--------------------------------------------------------------
+//evento dos botões
+
+
+//evento do formulário
 form.addEventListener('submit', (event) => {
     event.preventDefault();
 
