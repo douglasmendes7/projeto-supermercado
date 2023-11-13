@@ -1,13 +1,13 @@
-//variável que referencia os botões, formulário e as listas---------------------------
-const newBtn = document.getElementById('new-btn');
-const deletBtn = document.getElementById('delet-btn');
-const endBtn = document.getElementById('end-btn');
-const cancelBtn = document.getElementById('cancel-btn');
+//variável que armazena os botões da div
+const botoesContainer = document.querySelectorAll('#button-container button');
+//variáveis que armazena os elementos do formulário
 const form = document.getElementById('formulario');
+const buttonForm = document.getElementById('bar-button');
 const input = document.getElementById('bar-code').value;
+//variáveis que armazena os elementos da lista de produtos
 const productList = document.getElementById('product-list');
 const priceList = document.getElementById('price-list');
-const botoesContainer = document.querySelectorAll('#button-container button');
+const barList = document.getElementById('bar-list');
 //variável com as cores dos botões usadas na estrutura de decisão
 const collorNewPurchase = window.getComputedStyle(document.getElementById('new-btn')).backgroundColor;
 const collorDelet = window.getComputedStyle(document.getElementById('delet-btn')).backgroundColor;
@@ -64,13 +64,21 @@ function newPurchase(num) {
 
 //função que deleta um produto de acordo com a sua ordem na lista
 function deletProduct(num) {
-    form.style.display= '';
+    const posicao = -1;
 
-    if(num > 0 && num <= productList.children.length) {
-        productList.removeChild(productList.children[num - 1]);
-        priceList.removeChild(priceList.children[num - 1]);
+    for (var i = 0; i < barList.children.length; i++) {
+        if (barList.children[i].textContent === num) {
+            posicao = i;
+            break;
+        };
+    };
+
+    if (posicao !== -1) {
+        productList.removeChild(productList.children[posicao]);
+        priceList.removeChild(priceList.children[posicao]);
+        barList.remove(barList.children[posicao]);
     } else {
-        alert('Número inválido');
+        alert('Código de barras não encontrado')
     };
 };
 
@@ -93,19 +101,15 @@ botoesContainer.forEach(function(botao) {
 
         switch (buttonActivated){
             case 'new-btn':
-                if(collorNewPurchase === 'rgb(10, 210, 10)'){
-                    newPurchase(input);
-                } else {
+                if(collorNewPurchase !== 'rgb(10, 210, 10)'){
                     changesColorGreen(botao);
-                }
+                };
                 break;
 
             case 'delet-btn':
-                if(collorDelet === 'rgb(210, 10, 10)') {
-                    deletProduct(input);
-                } else {
+                if(collorDelet !== 'rgb(210, 10, 10)') {
                     changesColorRed(botao);
-                }
+                };
                 break;
 
             case 'end-btn':
@@ -120,3 +124,6 @@ botoesContainer.forEach(function(botao) {
 });
 
 //evento do formulário
+buttonForm.addEventListener('click', () => {
+    
+});
