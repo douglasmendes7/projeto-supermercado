@@ -4,10 +4,15 @@ const deletBtn = document.getElementById('delet-btn');
 const endBtn = document.getElementById('end-btn');
 const cancelBtn = document.getElementById('cancel-btn');
 const form = document.getElementById('formulario');
-const input = document.getElementById('bar-code');
+const input = document.getElementById('bar-code').value;
 const productList = document.getElementById('product-list');
 const priceList = document.getElementById('price-list');
 const botoesContainer = document.querySelectorAll('#button-container button');
+//variável com as cores dos botões usadas na estrutura de decisão
+const collorNewPurchase = window.getComputedStyle(document.getElementById('new-btn')).backgroundColor;
+const collorDelet = window.getComputedStyle(document.getElementById('delet-btn')).backgroundColor;
+const collorEndPurchase = window.getComputedStyle(document.getElementById('end-btn')).backgroundColor;
+const collorCancelPurchase = window.getComputedStyle(document.getElementById('cancel-btn')).backgroundColor;
 
 //funções--------------------------------------------------------------------
 //função regex que verifica se o código de barras inserido é válido
@@ -21,6 +26,8 @@ function changesColorGreen(id) {
     id.style.backgroundColor = 'rgb(10, 210, 10)';
     id.style.color = '#fff';
     id.style['font-weight'] = 'bold';
+    //tira o 'none' do formulário
+    form.style.display = 'block';
 };
 
 //função que muda a cor do botão para acionado para vermelho
@@ -28,6 +35,8 @@ function changesColorRed(id) {
     id.style.backgroundColor = 'rgb(210, 10, 10)';
     id.style.color = '#fff';
     id.style['font-weight'] = 'bold';
+    //tira o 'none' do formulário
+    form.style.display = 'block';
 };
 
 //função que muda a cor dos botões de volta ao normal
@@ -80,28 +89,33 @@ function cancelPurchase() {
 //evento dos botões
 botoesContainer.forEach(function(botao) {
     botao.addEventListener('click', () => {
-        var buttonActivated = botao.id
+        var buttonActivated = botao.id;
 
         switch (buttonActivated){
             case 'new-btn':
-                changesColorGreen(botao);
+                if(collorNewPurchase === 'rgb(10, 210, 10)'){
+                    newPurchase(input);
+                } else {
+                    changesColorGreen(botao);
+                }
                 break;
 
             case 'delet-btn':
-                deletProduct(input);
-                changesColorRed(botao);
+                if(collorDelet === 'rgb(210, 10, 10)') {
+                    deletProduct(input);
+                } else {
+                    changesColorRed(botao);
+                }
                 break;
 
             case 'end-btn':
                 endPurchase();
-                changesColorGreen(botao);
                 break;
 
             case 'cancel-btn':
                 cancelPurchase();
-                changesColorRed(botao);
                 break;
-        }
+        };
     });
 });
 
