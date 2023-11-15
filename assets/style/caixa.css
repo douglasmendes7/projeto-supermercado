@@ -56,11 +56,12 @@ p {
 button {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     box-shadow: 1px 1px 5px #404040ba;
+    border-color: #000;
+    background-color: #fff;
     cursor: pointer;
     height: 2rem;
     width: 8rem;
     border-radius: 5px;
-    border-color: #000;
 }
 
 #button-container {

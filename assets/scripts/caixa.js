@@ -1,5 +1,7 @@
 //variável que armazena os botões da div
 const botoesContainer = document.querySelectorAll('#button-container button');
+const buttonNewPurchase = document.getElementById('new-btn');
+const buttonDelet = document.getElementById('delet-btn');
 //variáveis que armazena os elementos do formulário
 const form = document.getElementById('formulario');
 const buttonForm = document.getElementById('bar-button');
@@ -9,10 +11,10 @@ const productList = document.getElementById('product-list');
 const priceList = document.getElementById('price-list');
 const barList = document.getElementById('bar-list');
 //variável com as cores dos botões usadas na estrutura de decisão
-const collorNewPurchase = window.getComputedStyle(document.getElementById('new-btn')).backgroundColor;
-const collorDelet = window.getComputedStyle(document.getElementById('delet-btn')).backgroundColor;
-const collorEndPurchase = window.getComputedStyle(document.getElementById('end-btn')).backgroundColor;
-const collorCancelPurchase = window.getComputedStyle(document.getElementById('cancel-btn')).backgroundColor;
+var collorNewPurchase = window.getComputedStyle(document.getElementById('new-btn')).backgroundColor;
+var collorDelet = window.getComputedStyle(document.getElementById('delet-btn')).backgroundColor;
+var collorEndPurchase = window.getComputedStyle(document.getElementById('end-btn')).backgroundColor;
+var collorCancelPurchase = window.getComputedStyle(document.getElementById('cancel-btn')).backgroundColor;
 
 //funções--------------------------------------------------------------------
 //função regex que verifica se o código de barras inserido é válido
@@ -40,6 +42,11 @@ function changesColorRed(id) {
 };
 
 //função que muda a cor dos botões de volta ao normal
+function normalCollor(id) {
+    id.style.backgroundColor = '#fff';
+    id.style.color = '#000';
+    id.style['font-weight'] = 'normal';
+};
 
 
 //função fetch que busca o produto no bd e insere na lista
@@ -90,7 +97,8 @@ function endPurchase() {
 
 //função que cancela a compra-----------------------------------------
 function cancelPurchase() {
-
+    //recarrega a página
+    location.reload();
 };
 
 //eventos--------------------------------------------------------------
@@ -98,17 +106,19 @@ function cancelPurchase() {
 botoesContainer.forEach(function(botao) {
     botao.addEventListener('click', () => {
         var buttonActivated = botao.id;
-
+        
         switch (buttonActivated){
             case 'new-btn':
-                if(collorNewPurchase !== 'rgb(10, 210, 10)'){
+                if(collorNewPurchase !== 'rgb(10, 210, 10)') {
                     changesColorGreen(botao);
+                    normalCollor(buttonDelet);
                 };
                 break;
 
             case 'delet-btn':
                 if(collorDelet !== 'rgb(210, 10, 10)') {
                     changesColorRed(botao);
+                    normalCollor(buttonNewPurchase);
                 };
                 break;
 
@@ -124,10 +134,14 @@ botoesContainer.forEach(function(botao) {
 });
 
 //evento do formulário
+//estou com um problema aqui, o if parece não estar funcionando, testar em um outro navegador
 buttonForm.addEventListener('click', (event) => {
     event.preventDefault();
 
-    const barCodeInserted = input.value;
+    if (collorNewPurchase === "rgb(10, 210, 10)") {
+        newPurchase(input.value);
+    } else if (collorDelet === "rgb(210, 10, 10)") {
+        deletProduct(input.value);
+    }
 
-    deletProduct(barCodeInserted);
 });
