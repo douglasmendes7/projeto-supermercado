@@ -3,7 +3,7 @@ const botoesContainer = document.querySelectorAll('#button-container button');
 //variáveis que armazena os elementos do formulário
 const form = document.getElementById('formulario');
 const buttonForm = document.getElementById('bar-button');
-const input = document.getElementById('bar-code').value;
+const input = document.getElementById('bar-code');
 //variáveis que armazena os elementos da lista de produtos
 const productList = document.getElementById('product-list');
 const priceList = document.getElementById('price-list');
@@ -64,7 +64,7 @@ function newPurchase(num) {
 
 //função que deleta um produto de acordo com a sua ordem na lista
 function deletProduct(num) {
-    const posicao = -1;
+    var posicao = -1;
 
     for (var i = 0; i < barList.children.length; i++) {
         if (barList.children[i].textContent === num) {
@@ -76,7 +76,7 @@ function deletProduct(num) {
     if (posicao !== -1) {
         productList.removeChild(productList.children[posicao]);
         priceList.removeChild(priceList.children[posicao]);
-        barList.remove(barList.children[posicao]);
+        barList.removeChild(barList.children[posicao]);
     } else {
         alert('Código de barras não encontrado')
     };
@@ -124,6 +124,10 @@ botoesContainer.forEach(function(botao) {
 });
 
 //evento do formulário
-buttonForm.addEventListener('click', () => {
-    
+buttonForm.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const barCodeInserted = input.value;
+
+    deletProduct(barCodeInserted);
 });
