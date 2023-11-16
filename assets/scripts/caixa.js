@@ -48,19 +48,32 @@ function normalCollor(id) {
     id.style['font-weight'] = 'normal';
 };
 
+//função que insere o produto na lista
+function listInsert(product) {
+    
+}
 
 //função fetch que busca o produto no bd e insere na lista
 function newPurchase(num) {
+    let barCode = {
+        bar : +num
+    };
 
     if(verificaBarras(num)) {
-        fetch('', {
+        fetch('http://localhost:8080/caixa/inserir-produto', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(num)
+            body: JSON.stringify(barCode)
         })
-        .then()
+        .then((response) => {
+            if (response.ok) {
+                addProduct();
+            } else {
+                throw new Error('Erro na solicitação.');
+            }
+        })
         .catch()
 
     } else {
