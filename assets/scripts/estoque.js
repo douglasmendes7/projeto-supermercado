@@ -75,7 +75,7 @@ function enviarProduto() {
     };
 
     if (verificaBarras(produto.barras) && verificaNome(produto.nome) && verificaPreco(produto.preco)) {
-        fetch('http://localhost:8080/enviar-dados', {
+        fetch('http://localhost:8080/estoque/enviar-dados', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ function deletarProduto() {
     };
 
     if (verificaBarras(produto.barras)){
-        fetch('http://localhost:8080/deletar-produto', {
+        fetch('http://localhost:8080/estoque/deletar-produto', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -141,7 +141,7 @@ function alterarProduto() {
     };
 
     if (verificaBarras(produto.barras) && verificaNome(produto.novoNome) && verificaPreco(produto.novoPreco)) {
-        fetch('http://localhost:8080/alterar-produto', {
+        fetch('http://localhost:8080/estoque/alterar-produto', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
