@@ -11,10 +11,10 @@ const productList = document.getElementById('product-list');
 const priceList = document.getElementById('price-list');
 const barList = document.getElementById('bar-list');
 //variável com as cores dos botões usadas na estrutura de decisão
-var collorNewPurchase = window.getComputedStyle(document.getElementById('new-btn')).backgroundColor;
-var collorDelet = window.getComputedStyle(document.getElementById('delet-btn')).backgroundColor;
-var collorEndPurchase = window.getComputedStyle(document.getElementById('end-btn')).backgroundColor;
-var collorCancelPurchase = window.getComputedStyle(document.getElementById('cancel-btn')).backgroundColor;
+const collorNewPurchase = window.getComputedStyle(document.getElementById('new-btn'));
+const collorDelet = window.getComputedStyle(document.getElementById('delet-btn'));
+const collorEndPurchase = window.getComputedStyle(document.getElementById('end-btn'));
+const collorCancelPurchase = window.getComputedStyle(document.getElementById('cancel-btn'));
 
 //funções--------------------------------------------------------------------
 //função regex que verifica se o código de barras inserido é válido
@@ -51,7 +51,6 @@ function normalCollor(id) {
 
 //função fetch que busca o produto no bd e insere na lista
 function newPurchase(num) {
-    form.style.display = '';
 
     if(verificaBarras(num)) {
         fetch('', {
@@ -109,14 +108,14 @@ botoesContainer.forEach(function(botao) {
         
         switch (buttonActivated){
             case 'new-btn':
-                if(collorNewPurchase !== 'rgb(10, 210, 10)') {
+                if(collorNewPurchase.backgroundColor !== 'rgb(10, 210, 10)') {
                     changesColorGreen(botao);
                     normalCollor(buttonDelet);
                 };
                 break;
 
             case 'delet-btn':
-                if(collorDelet !== 'rgb(210, 10, 10)') {
+                if(collorDelet.backgroundColor !== 'rgb(210, 10, 10)') {
                     changesColorRed(botao);
                     normalCollor(buttonNewPurchase);
                 };
@@ -135,13 +134,13 @@ botoesContainer.forEach(function(botao) {
 
 //evento do formulário
 //estou com um problema aqui, o if parece não estar funcionando, testar em um outro navegador
-buttonForm.addEventListener('click', (event) => {
+form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    if (collorNewPurchase === "rgb(10, 210, 10)") {
+    if (collorNewPurchase.backgroundColor === "rgb(10, 210, 10)") {
         newPurchase(input.value);
-    } else if (collorDelet === "rgb(210, 10, 10)") {
+    } else if (collorDelet.backgroundColor === "rgb(210, 10, 10)") {
         deletProduct(input.value);
-    }
+    };
 
 });
