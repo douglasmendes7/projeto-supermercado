@@ -8,6 +8,7 @@ const cors = require('cors');
 const { sequelize, Produtos } = require('./sequelize');
 //importa as rotas do arquivo do estoque e do caixa
 const estoqueRoutes = require('./estoque_rotas');
+const caixaRoutes = require('./caixa_rotas');
 
 //midleware que converte os dados JSON em objetos:
 app.use(express.json());
@@ -34,3 +35,4 @@ app.listen(port, async () => {
 });
 
 app.use('/estoque', estoqueRoutes);
+app.use('caixa', caixaRoutes);

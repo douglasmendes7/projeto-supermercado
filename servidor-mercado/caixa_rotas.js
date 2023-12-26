@@ -3,7 +3,6 @@ const caixaRouter = express.Router();
 const {Produtos} = require('./sequelize');
 const { propfind } = require('./estoque_rotas');
 
-
 //rota que envia os dados do produto para serem inseridos na lista de compras
 caixaRouter.get('/inserir-produto', async(req, res) => {
     try {
@@ -16,10 +15,11 @@ caixaRouter.get('/inserir-produto', async(req, res) => {
         });
 
         if (product) {
+            console.log(product);
             res
             .status(200)
             .json(product);
-
+            
         } else {
             res
             .status(404)
@@ -32,3 +32,6 @@ caixaRouter.get('/inserir-produto', async(req, res) => {
         .json({ message: 'Erro interno do servidor'});
     }
 });
+
+//exporta as rotas
+module.exports = caixaRouter;

@@ -146,7 +146,6 @@ botoesContainer.forEach(function(botao) {
 });
 
 //evento do formulário
-//estou com um problema aqui, o if parece não estar funcionando, testar em um outro navegador
 form.addEventListener('submit', (event) => {
     event.preventDefault();
 
