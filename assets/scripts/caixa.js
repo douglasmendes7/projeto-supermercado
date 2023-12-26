@@ -1,20 +1,20 @@
 //variável que armazena os botões da div
-const botoesContainer = document.querySelectorAll('#button-container button');
-const buttonNewPurchase = document.getElementById('new-btn');
-const buttonDelet = document.getElementById('delet-btn');
+var botoesContainer = document.querySelectorAll('#button-container button');
+var buttonNewPurchase = document.getElementById('new-btn');
+var buttonDelet = document.getElementById('delet-btn');
 //variáveis que armazena os elementos do formulário
-const form = document.getElementById('formulario');
-const buttonForm = document.getElementById('bar-button');
-const input = document.getElementById('bar-code');
+var form = document.getElementById('formulario');
+var buttonForm = document.getElementById('bar-button');
+var input = document.getElementById('bar-code');
 //variáveis que armazena os elementos da lista de produtos
-const productList = document.getElementById('product-list');
-const priceList = document.getElementById('price-list');
-const barList = document.getElementById('bar-list');
+var productList = document.getElementById('product-list');
+var priceList = document.getElementById('price-list');
+var barList = document.getElementById('bar-list');
 //variável com as cores dos botões usadas na estrutura de decisão
-const collorNewPurchase = window.getComputedStyle(document.getElementById('new-btn'));
-const collorDelet = window.getComputedStyle(document.getElementById('delet-btn'));
-const collorEndPurchase = window.getComputedStyle(document.getElementById('end-btn'));
-const collorCancelPurchase = window.getComputedStyle(document.getElementById('cancel-btn'));
+var collorNewPurchase = window.getComputedStyle(document.getElementById('new-btn'));
+var collorDelet = window.getComputedStyle(document.getElementById('delet-btn'));
+var collorEndPurchase = window.getComputedStyle(document.getElementById('end-btn'));
+var collorCancelPurchase = window.getComputedStyle(document.getElementById('cancel-btn'));
 
 //funções--------------------------------------------------------------------
 //função regex que verifica se o código de barras inserido é válido
